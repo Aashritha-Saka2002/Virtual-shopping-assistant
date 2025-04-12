@@ -1,0 +1,52 @@
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f2f2f2;
+    background-image: url('https://img.freepik.com/free-vector/online-shopping-concept-landing-page_52683-20156.jpg?semt=ais_hybrid&w=740');
+  }
+  
+  .auth-form {
+    background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  .auth-form input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .auth-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .auth-form button:hover {
+    background-color: #0056b3;
+  }
+  
