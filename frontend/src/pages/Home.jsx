@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="font-sans">
       {/* Navbar */}
       <nav className="flex justify-between items-center p-4 shadow-md bg-white">
-        <div className="text-2xl font-bold">ShopEase</div>
+        <div className="text-2xl font-bold"><ShopEasy></ShopEasy></div>
         <div className="space-x-6 hidden md:flex">
           <a href="#" className="hover:text-blue-600">Home</a>
           <a href="#" className="hover:text-blue-600">Shop</a>
