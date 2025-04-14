@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 import Product from '../models/Product.js';
-import { verifyToken, isAdmin } from '../middleware/auth.js';
+import { authenticateToken, isAdmin } from '../middleware/auth.js';
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create new product (Admin only)
-router.post('/', verifyToken, isAdmin, async (req, res) => {
+router.post('/', authenticateToken, isAdmin, async (req, res) => {
   try {
     const newProduct = await Product.create(req.body);
     res.status(201).json(newProduct);
@@ -31,7 +31,7 @@ router.post('/', verifyToken, isAdmin, async (req, res) => {
 });
 
 // Update product (Admin only)
-router.put('/:id', verifyToken, isAdmin, async (req, res) => {
+router.put('/:id', authenticateToken, isAdmin, async (req, res) => {
   try {
     const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updated);
@@ -41,7 +41,7 @@ router.put('/:id', verifyToken, isAdmin, async (req, res) => {
 });
 
 // Delete product (Admin only)
-router.delete('/:id', verifyToken, isAdmin, async (req, res) => {
+router.delete('/:id', authenticateToken, isAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.json({ message: 'Product deleted' });

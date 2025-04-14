@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const verifyToken = (req, res, next) => {
+function authenticateToken(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(403).json({ message: 'No token provided' });
 
@@ -20,5 +20,5 @@ const isAdmin = (req, res, next) => {
   next();
 };
 
-export { verifyToken, isAdmin };
+export { authenticateToken, isAdmin };
 

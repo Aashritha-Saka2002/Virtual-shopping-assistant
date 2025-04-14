@@ -7,6 +7,9 @@
     background-image: url('https://img.freepik.com/free-vector/online-shopping-concept-landing-page_52683-20156.jpg?semt=ais_hybrid&w=740');
   }
   
+  .a {
+    text-align: center;
+  }
   .auth-form {
     background: rgba(255, 255, 255, 0.95);
   padding: 2.5rem;
@@ -21,7 +24,7 @@
   
   .auth-form h2 {
     text-align: center;
-    color: #2c3e50;
+    color: #2c5031;
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 600;
@@ -49,4 +52,23 @@
   .auth-form button:hover {
     background-color: #0056b3;
   }
+
+  .auth-link {
+    color: #007bff;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  .auth-link:hover {
+    color: #0056b3;
+  }
+  
+  .auth-success {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
   

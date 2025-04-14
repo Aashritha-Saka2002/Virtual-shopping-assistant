@@ -6,6 +6,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 const router = express.Router();
 
+import { requireRole } from '../middleware/role.js';
+import { authenticateToken } from '../middleware/auth.js';
+
+
+router.get('/dashboard', authenticateToken, requireRole('admin'), (req, res) => {
+  res.json({ message: `Welcome admin ${req.user.username}` });
+});
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });

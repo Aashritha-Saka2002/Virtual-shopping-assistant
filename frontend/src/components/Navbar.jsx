@@ -9,29 +9,29 @@ export default function Navbar() {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <nav className="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
-      <Link to="/" className="text-xl font-bold">🛍 VirtualShop</Link>
+    <nav style={navStyle}>
+      <Link to="/" style={brandStyle}>🛍 VirtualShop</Link>
 
-      <div className="flex items-center space-x-4">
-        {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
+      <div style={navLinksContainer}>
+        {user?.role === 'admin' && <Link to="/admin" style={linkStyle}>Admin</Link>}
+        
         {user ? (
           <>
-            <span>Hello, {user.username}</span>
-            <button onClick={logout} className="text-red-400">Logout</button>
+            <span style={userGreetingStyle}>Hello, {user.username}</span>
+            <Link to="/profile" style={linkStyle}>Profile</Link> {/* Add Profile Link */}
+            <button onClick={logout} style={logoutButtonStyle}>Logout</button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" style={linkStyle}>Login</Link>
+            <Link to="/register" style={linkStyle}>Register</Link>
           </>
         )}
 
-        <Link to="/cart" className="relative">
+        <Link to="/cart" style={cartLinkStyle}>
           🛒
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1">
-              {totalItems}
-            </span>
+            <span style={cartBadgeStyle}>{totalItems}</span>
           )}
         </Link>
       </div>
