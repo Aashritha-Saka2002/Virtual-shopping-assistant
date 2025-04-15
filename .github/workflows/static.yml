@@ -1,10 +1,8 @@
-# .github/workflows/deploy.yml
-
-name: Deploy React app to GitHub Pages
+name: Deploy React app (frontend) to GitHub Pages
 
 on:
   push:
-    branches: ["master"]  # or "main", depending on your default branch
+    branches: ["main"]  # or "master", adjust as needed
   workflow_dispatch:
 
 permissions:
@@ -24,27 +22,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # or your project's Node version
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: Install backend dependencies (optional)
+        working-directory: ./backend
         run: npm install
 
-      - name: Build the React app
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build React app
+        working-directory: ./frontend
         run: npm run build
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build'  # Only upload the build folder
+          path: frontend/build
 
       - name: Deploy to GitHub Pages
         id: deployment
