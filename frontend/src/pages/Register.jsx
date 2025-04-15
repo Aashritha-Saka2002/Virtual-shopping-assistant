@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // ← Import Link
 import '../styles/Auth.css';
 
 export default function Register() {
@@ -8,8 +8,8 @@ export default function Register() {
     username: '',
     email: '',
     password: '',
-    mobile: '', // New mobile field
-    role: 'user', // Default role
+    mobile: '',
+    role: 'user',
   });
   const [error, setError] = useState('');
 
@@ -91,6 +91,11 @@ export default function Register() {
           </select>
           <button className="auth-button" type="submit">Register</button>
           {error && <p className="auth-error">{error}</p>}
+
+          {/* Added login link below */}
+          <p className="auth-switch">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </form>
       </div>
     </div>

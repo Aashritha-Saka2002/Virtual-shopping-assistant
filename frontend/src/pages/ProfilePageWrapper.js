@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext';  // Assuming you have AuthContext
+import { useAuth } from './context/AuthContext';  
 import Profile from './pages/Profile';  // Import Profile component
 
 function ProfilePageWrapper() {

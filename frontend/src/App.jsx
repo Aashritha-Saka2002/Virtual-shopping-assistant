@@ -7,9 +7,9 @@ import ResetPassword from './pages/ResetPassword';
 import ForgotPassword from './pages/ForgotPassword';
 import './styles/Auth.css'; 
 import LearnMore from './pages/LearnMore';
-import Contact from './pages/Contact';
 import GetInTouch from './pages/GetInTouch';
 import Profile from './pages/Profile'; 
+import React, { useState } from 'react';
 
 // ---------- Pages ----------
 
@@ -42,7 +42,78 @@ function About() {
   );
 }
 
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Message Sent:', formData);
+    // Optionally add API call here
+    alert("Message sent successfully!");
+    setFormData({ name: '', email: '', message: '' });
+  };
+  <div id="get-in-touch" style={sectionStyle}>
+  <h1 style={contactTitle}>Get in Touch</h1>
+  ...
+</div>
+
+
+  return (
+    <div style={sectionStyle}>
+      <h1 style={contacttitle}>Contact Us</h1>
+        <p style={contactText}>
+          copy @2025, support@shopeasy.com
+        </p>
+        <p style={contactText}>
+          contact: +91 1234567891
+        </p>
+      <h1 style={contactTitle}>Get in Touch</h1>
+      <p style={contactText}>Have questions or feedback? We'd love to hear from you.</p>
+
+      <form onSubmit={handleSubmit} style={formStyle}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          style={textareaStyle}
+        />
+        <button type="submit" style={contactButton}>Send Message</button>
+      </form>
+    </div>
+  );
+}
 
 function Cart() {
   return (
@@ -255,53 +326,55 @@ aboutButton[':hover'] = {
 
 // ---------- Contact Page Styles ----------
 
-const contactContainer = {
-  backgroundColor: '#ecf0f1', // Light, neutral background
-  padding: '50px 20px', // Generous padding for a spacious layout
-};
-
-const contactSection = {
-  maxWidth: '800px',
-  margin: '40px auto',
-  padding: '30px',
-  backgroundColor: '#fff',
-  borderRadius: '10px',
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-  textAlign: 'center',
-};
-
-const contactTitle = {
-  fontSize: '2.5rem',
-  fontWeight: 'bold',
-  color: '#3498db', // Bright blue, consistent with the homepage and call to action
-  marginBottom: '15px',
-};
-
-const contactText = {
-  fontSize: '1.2rem',
-  lineHeight: '1.6',
-  color: '#34495e', // Dark grey text for clarity and readability
-  marginBottom: '20px',
-};
-
-const contactDetails = {
-  fontSize: '1.1rem',
-  color: '#2c3e50', // Slightly darker for contact info to make it stand out
-  marginBottom: '25px',
-};
-
-const contactButton = {
-  padding: '12px 28px',
-  fontSize: '1rem',
-  backgroundColor: '#f39c12', // Vibrant yellow-orange button
-  border: 'none',
-  borderRadius: '5px',
-  color: 'white',
-  cursor: 'pointer',
-  transition: 'background-color 0.3s ease, transform 0.2s ease',
-};
-
-contactButton[':hover'] = {
-  backgroundColor: '#e67e22', // Darker orange on hover for interaction
-  transform: 'scale(1.05)', // Slight zoom effect on hover for a more interactive feel
-};
+const formStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+    marginTop: '30px',
+  };
+  
+  const inputStyle = {
+    padding: '12px',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    fontSize: '1rem',
+  };
+  
+  const textareaStyle = {
+    ...inputStyle,
+    resize: 'vertical'
+  };
+  
+  const contactTitle = {
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+    color: 'orange',
+    marginBottom: '15px',
+  };
+  const contacttitle = {
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+    color: '#3498db',
+    marginBottom: '15px',
+  };
+  
+  const contactText = {
+    fontSize: '1.2rem',
+    color: '#34495e',
+  };
+  
+  const contactButton = {
+    padding: '12px 28px',
+    fontSize: '1rem',
+    backgroundColor: 'green',
+    border: 'none',
+    borderRadius: '5px',
+    color: 'white',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease, transform 0.2s ease',
+  };
+  
+  contactButton[':hover'] = {
+    backgroundColor: '#e67e22',
+    transform: 'scale(1.05)',
+  };

@@ -63,7 +63,7 @@ export default function Shop() {
           onChange={(e) => setMessage(e.target.value)}
           style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid #ccc' }}
         />
-        <button type="submit" style={{ padding: '10px 16px', borderRadius: '8px', background: '#007bff', color: '#fff', border: 'none' }}>
+        <button type="submit" style={{ padding: '10px 16px', borderRadius: '8px', background: '#007bff', color: '#fff', border: 'none', cursor: 'pointer' }}>
           Send
         </button>
         <button
@@ -75,6 +75,7 @@ export default function Shop() {
             background: listening ? '#dc3545' : '#28a745',
             color: '#fff',
             border: 'none',
+            cursor: 'pointer' 
           }}
         >
           🎤
