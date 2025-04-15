@@ -2,7 +2,7 @@ name: Deploy React app (frontend) to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # or "master", adjust as needed
+    branches: ["master"]  
   workflow_dispatch:
 
 permissions:
